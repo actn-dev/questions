@@ -35,3 +35,9 @@ npx ts-node scripts/fetch-stellar-operations.ts
 - ✅ Operation type summary
 - ✅ Rate limiting protection (100ms delay between pages)
 - ✅ Error handling
+
+
+https://developers.stellar.org/docs/data/apis/horizon/api-reference/resources/accounts
+https://developers.stellar.org/docs/data/apis/horizon/api-reference/resources/transactions
+
+https://stellar.github.io/js-stellar-sdk/module-Horizon.Server.html#transactions
