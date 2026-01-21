@@ -37,7 +37,7 @@ This is a **real-world coding challenge** working with Stellar blockchain data. 
 
 ## Your Tasks
 
-### **Task 1: Debug & Display Proper Transaction Data (20 min)**
+### **Task 1: Debug & Display Proper Paginated Transaction Data**
 
 **Current Problem:** 
 - Transaction data is displayed but may not show all relevant information
@@ -67,7 +67,7 @@ This is a **real-world coding challenge** working with Stellar blockchain data. 
 
 ---
 
-### **Task 2: Transaction Details Modal with Operations (25 min)**
+### **Task 2: Transaction Details Modal with Transection Operations **
 
 **Current Problem:** 
 - Users can't see transaction details or operations
@@ -102,50 +102,44 @@ This is a **real-world coding challenge** working with Stellar blockchain data. 
 - Use `api.transaction.getById` tRPC endpoint
 - Fetch operations: `https://horizon.stellar.org/transactions/{transactionId}/operations`
 - Or SDK: `server.operations().forTransaction(transactionId).call()`
-- Display XDR in a scrollable code block (use `font-mono` class)
+- Display XDR in a scrollable code block 
 
 
 
 ---
 
-### **Task 3: Database Persistence (25 min)**
+### **Task 3: Database Persistence **
 
 **Current Problem:** 
 - All data is fetched from Stellar API each time
 - No data persistence
-- No ability to track historical data
+- No ability to track or query historical data
 
 **Requirements:**
-1. **Create Database Schema** - Design tables for:
-   - Transactions table:
-     - id, hash, timestamp, source_account
-     - operation_count, successful, ledger
-     - fee_charged, memo, memo_type
-     - envelope_xdr, result_xdr
-     - created_at, updated_at
-
-   - Operations table:
-     - id, transaction_id (foreign key)
-     - operation_type, source_account
-     - amount, asset_code, asset_type
-     - from_account, to_account
-     - created_at
+1. **Design Database Schema** - Create a schema to persist transaction and operation data:
+   - Think about how to store transactions and their related operations
+   - Consider relationships between transactions and operations
+   - Include fields you think are important for querying and display
+   - Handle timestamps and indexing appropriately
 
 2. **Implement Data Storage** - When fetching transactions:
-   - Save/update transactions in database
-   - Save/update operations in database
-   - Handle duplicates (upsert logic)
+   - Save transaction data to the database
+   - Save operation data with proper relationships
+   - Handle duplicates appropriately (consider upsert logic)
+   - Ensure data consistency
 
-3. **Query from Database** - Update tRPC endpoints:
-   - Fetch from database first
-   - Fall back to Stellar API if needed
-   - Implement pagination at database level
+3. **Update tRPC Endpoints** - Modify query logic:
+   - Fetch from database first (or fetch from API and store)
+   - Decide on your data fetching strategy
+   - Implement efficient querying
+   - Consider pagination at the database level
 
 **Hints:**
 - Use Drizzle ORM (already configured)
 - Schema location: [`src/server/db/schema.ts`](src/server/db/schema.ts)
 - Check existing post schema as reference
 - Use `db:push` script to push schema changes
+- Think about what fields are most useful to store
 
 **Files to modify:**
 - [`src/server/db/schema.ts`](src/server/db/schema.ts)
