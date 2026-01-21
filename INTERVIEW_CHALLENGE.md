@@ -64,9 +64,6 @@ This is a **real-world coding challenge** working with Stellar blockchain data. 
    - Display current page and total pages
    - Consider using shadcn `Button` component
 
-**Files to modify:**
-- [`src/app/_components/transaction-list.tsx`](src/app/_components/transaction-list.tsx)
-- [`src/server/api/routers/transaction.ts`](src/server/api/routers/transaction.ts) (if implementing server-side pagination)
 
 ---
 
@@ -107,10 +104,7 @@ This is a **real-world coding challenge** working with Stellar blockchain data. 
 - Or SDK: `server.operations().forTransaction(transactionId).call()`
 - Display XDR in a scrollable code block (use `font-mono` class)
 
-**Files to modify:**
-- [`src/app/_components/transaction-list.tsx`](src/app/_components/transaction-list.tsx)
-- [`src/server/api/routers/transaction.ts`](src/server/api/routers/transaction.ts)
-- [`lib/stellar/trx-api.ts`](lib/stellar/trx-api.ts) or [`lib/stellar/trx-sdk.ts`](lib/stellar/trx-sdk.ts)
+
 
 ---
 
