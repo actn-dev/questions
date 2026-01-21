@@ -1,3 +1,6 @@
+// https://developers.stellar.org/docs/data/apis/horizon/api-reference/resources/accounts
+// https://developers.stellar.org/docs/data/apis/horizon/api-reference/resources/transactions
+
 import { STELLAR_ACCOUNT } from "./account";
 
 const account = await fetch(`https://horizon.stellar.org/accounts/${STELLAR_ACCOUNT}`);

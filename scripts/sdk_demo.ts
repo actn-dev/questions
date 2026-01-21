@@ -1,3 +1,4 @@
+// https://stellar.github.io/js-stellar-sdk/module-Horizon.Server.html#transactions
 import { server, STELLAR_ACCOUNT } from "./account";
 
 const accounts = await server.accounts().call();
